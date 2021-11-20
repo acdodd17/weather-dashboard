@@ -3,6 +3,32 @@ h1 {
     background-image: linear-gradient(90deg, #0f025c 0%, #3a26ad 52%, #5c4bb9 90%);
 }
 
+.current-weather {
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
 .city-title, .current-date, .current-weather-icon {
     font-size: 30px;
+}
+
+
+.favorable {
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 2px 10px;
+    background-color: green;
+}
+
+.moderate {
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 2px 10px;
+    background-color: yellow;
+}
+
+.severe{
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 2px 10px;
+    background-color: red;
 }
