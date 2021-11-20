@@ -10,29 +10,45 @@ var currentDateEl = document.getElementById("current-date");
 var currentWeatherIconEl = document.getElementById("current-weather-icon");
 var searchHistory = document.getElementById("search-history");
 var forcastContainer = document.getElementById("5-day-container");
+var city = citySearchInputEl.value; //no idea if this is necessarry
 
-//refresh and display search history
-var refreshHistory = function() {
-   cities = JSON.parse(localStorage.getItem('city'));
+document.addEventListener("DOMContentLoaded", displaySearchHistory);
+
+//refresh and display search history --> feels repetative from addSeachHistory funtion below, but nothing is working 
+var displaySearchHistory = function() {
+   cities = JSON.parse(localStorage.getItem('cities'));
    for (i=0; i < cities.length; i++) {
-       displaySearchHistory(city);
-   }
+       if (cities) {
+            var cityEl = document.createElement("button");
+            cityEl.textContent = cities[i].value; 
+            cityEl.setAttribute("data-city", city)
+            cityEl.setAttribute("type", "submit");
+            cityEl.classList = "btn btn-secondary btn-lg my-2 p-2 w-100";
+            citySearchButtonEl.append(cityEl);
+       } 
+    }
 }
 //city search form handler
 var formSubmitHandler = function(event) {
     event.preventDefault();
-    var city = citySearchInputEl.value.trim();
+    
     if (city){
         getCityWeather(city);
         // getForcast(city);
-        cities.push({city});
+        cities.push(city);
         citySearchInputEl.value = "";
         saveSearch();
-        displaySearchHistory(city);
+        addSearchHistory(city);
     } else {
         alert("Please enter a city name");
     }
 };
+
+//save search date to cities array 
+var saveSearch = function() {
+    localStorage.setItem("cities", JSON.stringify(cities));
+};
+
 
 //get current weather for searched city
 var getCityWeather = function(city) {
@@ -102,13 +118,8 @@ var displayWeather = function(data, city) {
 
 // };
 
-//save search date to cities array 
-var saveSearch = function() {
-    localStorage.setItem("cities", JSON.stringify(cities));
-};
-
 //create buttonEl for search city 
-var displaySearchHistory = function(search) {
+var addSearchHistory = function(search) {
     var searchEl = document.createElement("button");
     searchEl.textContent = search; 
     searchEl.setAttribute("data-city", search)
