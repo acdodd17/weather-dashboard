@@ -1,0 +1,8 @@
+h1 {
+    background: transparent;
+    background-image: linear-gradient(90deg, #0f025c 0%, #3a26ad 52%, #5c4bb9 90%);
+}
+
+.city-title, .current-date, .current-weather-icon {
+    font-size: 30px;
+}
