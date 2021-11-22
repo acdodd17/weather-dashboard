@@ -25,7 +25,7 @@ URL: (https://acdodd17.github.io/weather-dashboard/)
 
 ## WEBPAGE APPEARANCE 
 
-![Weather Dashboard with current weather for New York](/assets\weather-dashboard.PNG)
+![Weather Dashboard with current weather for New York](.\assets\weather-dashboard.PNG)
 
 ## CONTRIBUTION
 Made by Anna Dodd 
