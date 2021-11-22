@@ -80,7 +80,7 @@ var displayWeather = function(data, city) {
     var currentWind = document.getElementById("current-wind");
     var currentHumidity = document.getElementById("current-humidity");
 
-    currentTemp.textContent= data.main.temp + " °F";
+    currentTemp.textContent= Math.round(data.main.temp) + " °F";
     currentWind.textContent= data.wind.speed + " MPH";
     currentHumidity.textContent= data.main.humidity + " %"
 
@@ -162,7 +162,7 @@ var displayForecast = function(data) {
     var day1Wind = document.getElementById("day-1-wind");
     var day1Humidity = document.getElementById("day-1-humidity");
 
-    day1Temp.textContent= data.list[0].main.temp + " °F";
+    day1Temp.textContent= Math.round(data.list[0].main.temp) + " °F";
     day1Wind.textContent= data.list[0].wind.speed + " MPH";
     day1Humidity.textContent= data.list[0].main.humidity + " %"
 
@@ -174,7 +174,7 @@ var displayForecast = function(data) {
     var day2Wind = document.getElementById("day-2-wind");
     var day2Humidity = document.getElementById("day-2-humidity");
 
-    day2Temp.textContent= data.list[1].main.temp + " °F";
+    day2Temp.textContent= Math.round(data.list[1].main.temp) + " °F";
     day2Wind.textContent= data.list[1].wind.speed + " MPH";
     day2Humidity.textContent= data.list[1].main.humidity + " %"
 
@@ -186,7 +186,7 @@ var displayForecast = function(data) {
     var day3Wind = document.getElementById("day-3-wind");
     var day3Humidity = document.getElementById("day-3-humidity");
 
-    day3Temp.textContent= data.list[2].main.temp + " °F";
+    day3Temp.textContent= Math.round(data.list[2].main.temp) + " °F";
     day3Wind.textContent= data.list[2].wind.speed + " MPH";
     day3Humidity.textContent= data.list[2].main.humidity + " %"
 
@@ -198,7 +198,7 @@ var displayForecast = function(data) {
     var day4Wind = document.getElementById("day-4-wind");
     var day4Humidity = document.getElementById("day-4-humidity");
 
-    day4Temp.textContent= data.list[3].main.temp + " °F";
+    day4Temp.textContent= Math.round(data.list[3].main.temp) + " °F";
     day4Wind.textContent= data.list[3].wind.speed + " MPH";
     day4Humidity.textContent= data.list[3].main.humidity + " %"
 
@@ -210,7 +210,7 @@ var displayForecast = function(data) {
     var day5Wind = document.getElementById("day-5-wind");
     var day5Humidity = document.getElementById("day-5-humidity");
 
-    day5Temp.textContent= data.list[4].main.temp + " °F";
+    day5Temp.textContent= Math.round(data.list[4].main.temp) + " °F";
     day5Wind.textContent= data.list[4].wind.speed + " MPH";
     day5Humidity.textContent= data.list[4].main.humidity + " %"
 };
@@ -223,7 +223,6 @@ var addSearchHistory = function(search) {
     searchEl.setAttribute("type", "submit");
     searchEl.classList = "btn btn-secondary btn-lg my-2 p-2 w-100";
     searchHistory.append(searchEl);
-    cities.push(search);
 };
 
 //get weather data for previously searched city 

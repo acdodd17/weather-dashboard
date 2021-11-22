@@ -6,10 +6,6 @@ body {
     background-image: linear-gradient(90deg, #0f025c 0%, #3a26ad 52%, #5c4bb9 90%);
 }
 
-.city-current {
-    background-color: white;
-}
-
 .bold {
     font-weight: bolder;
 }
@@ -18,10 +14,25 @@ body {
     font-weight: 200;
 }
 
-.current-weather {
+#city-name {
+    font-size: 48px;
+}
+
+#current-date {
+    font-size: 28px;
+}
+
+#current-weather {
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 0.25rem;
+    background-color: white;
 }
+
+#current-temp {
+    font-size: 36px;
+    font-weight: bolder;
+}
+
 .city-title, .current-date, .current-weather-icon {
     font-size: 30px;
 }
@@ -52,6 +63,9 @@ body {
     color: white;
 }
 
+#forecast-container {
+    background-color: white;
+}
 #forecast-container .card {
     background: transparent;
     background-image: linear-gradient(90deg, #0f025c 0%, #3a26ad 52%, #5c4bb9 90%);
