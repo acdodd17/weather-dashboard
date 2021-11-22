@@ -1,5 +1,5 @@
 //array of cities searched 
-var cities = [];
+var citiesSearched = [];
 //document elements 
 var citySearchEl = document.getElementById("city-search-form")
 var citySearchInputEl = document.getElementById("city-search");
@@ -21,7 +21,7 @@ var formSubmitHandler = function(event) {
     if (city){
         getCityWeather(city);
         getForecast(city);
-        cities.push(city);
+        citiesSearched.push(city);
         citySearchInputEl.value = "";
         saveSearch();
         addSearchHistory(city);
@@ -32,12 +32,12 @@ var formSubmitHandler = function(event) {
 
 //save search date to cities array 
 var saveSearch = function() {
-    localStorage.setItem("cities", JSON.stringify(cities));
+    localStorage.setItem("citiesSearched", JSON.stringify(citiesSearched));
 };
 
 //refresh and display search history --> feels repetative from addSeachHistory funtion below, but nothing is working 
 var displaySearchHistory = function() {
-    var cities = JSON.parse(localStorage.getItem("cities"));
+    var cities = JSON.parse(localStorage.getItem("citiesSearched"));
     for (var i=0; i < cities.length; i++) {
         if (cities) {
              var cityEl = document.createElement("button");
@@ -48,6 +48,8 @@ var displaySearchHistory = function() {
              citySearchButtonEl.appendChild(cityEl);
         } 
      }
+
+     citiesSearched = cities; 
  };
 
 
@@ -93,7 +95,6 @@ var displayWeather = function(data, city) {
                
                 var uvindex= document.getElementById("uvindex");
                 uvindex.textContent= data.current.uvi;
-                console.log(data.current.uvi);
 
                 if(data.current.uvi <=2){
                     uvindex.setAttribute("class", "favorable");
@@ -230,13 +231,13 @@ var getSearchHistoryData = function(event) {
     var city = event.target.getAttribute("data-city")
     if(city){
         getCityWeather(city);
-        //getForcast(city);
+        getForecast(city);
     }
 };
 
 //listen for city submit button
 citySearchEl.addEventListener("submit", formSubmitHandler);
-console.log(cities);
+console.log(citiesSearched);
 
 //listen for search history click 
 searchHistory.addEventListener("click", getSearchHistoryData);
