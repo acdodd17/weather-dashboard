@@ -23,7 +23,7 @@ View weather outlook for multiple cities to plan trips accordingly.
 ## WEBPAGE 
 URL: (https://acdodd17.github.io/weather-dashboard/)
 ## WEBPAGE APPEARANCE 
-![Weather Dashboard with current weather for Raleigh](assets\weather-dashboard.PNG)
+![Weather Dashboard with current weather for Raleigh](./assets\weather-dashboard.PNG)
 
 ## CONTRIBUTION
 Made by Anna Dodd 
