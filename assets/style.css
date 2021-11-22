@@ -1,6 +1,21 @@
 h1 {
-    background: transparent;
+    background: transparent;  
+}
+
+body {
     background-image: linear-gradient(90deg, #0f025c 0%, #3a26ad 52%, #5c4bb9 90%);
+}
+
+.city-current {
+    background-color: white;
+}
+
+.bold {
+    font-weight: bolder;
+}
+
+.bold span {
+    font-weight: 200;
 }
 
 .current-weather {
@@ -31,4 +46,18 @@ h1 {
     border-radius: 5px;
     padding: 2px 10px;
     background-color: red;
+}
+
+#forecast-header h4 {
+    color: white;
+}
+
+#forecast-container .card {
+    background: transparent;
+    background-image: linear-gradient(90deg, #0f025c 0%, #3a26ad 52%, #5c4bb9 90%);
+    color: white;
+}
+
+.hide {
+    display: none;
 }

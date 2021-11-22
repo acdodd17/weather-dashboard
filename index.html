@@ -36,25 +36,60 @@
           </ul>
         </div>
         <div class="col-12 col-md-8" >
-          <div class="border city-current" id="current-weather">
+          <div class="border city-current hide" id="current-weather">
             <div class="d-flex">
               <h3 class="p-3" id="city-name">Current Weather</h3>
               <span class="p-3 mb-2" id="current-date"></span>
               <img class="p-2 mb-2" id="current-weather-icon">
             </div>
             <div class="p-3" id="weather-info">
-              <p>Temp: <span id="temp"></span></p>
-              <p>Wind: <span id="wind"></span></p>
-              <p>Humidity: 
-                
-                <span id="humidity"></span></p>
-              <p>UV Index:
+              <p class="bold">Temp: <span id="current-temp"></span></p>
+              <p class="bold">Wind: <span id="current-wind"></span></p>
+              <p class="bold">Humidity: <span id="current-humidity"></span></p>
+              <p class="bold">UV Index:
                 <span class="" id="uvindex"></span>
               </p>
             </div>
           </div>
-          <div id="5-day-container">
-            <h4 class="p-3"></h4>
+          <div class="hide" id="forecast-header"> 
+            <h4 class="p-3">5-Day Forecast</h4>
+          </div>
+          <div class= "d-flex flex-wrap justify-content-around" id="forecast-container">
+            <div class="card m-1 p-3 hide" id="day-1">
+              <h5 class="next-date" id="day-1-date"></h5>
+              <span><img id= day-1-icon></span>
+              <p class="bold">Temp: <span id="day-1-temp"></span></p>
+              <p class="bold">Wind: <span id="day-1-wind"></span></p>
+              <p class="bold">Humidity: <span id="day-1-humidity"></span></p>
+            </div>
+            <div class="card m-1 p-3 hide" id="day-2">
+              <h5 class="next-date" id="day-2-date"></h5>
+              <span><img id= day-2-icon></span>
+              <p class="bold">Temp: <span id="day-2-temp"></span></p>
+              <p class="bold">Wind: <span id="day-2-wind"></span></p>
+              <p class="bold">Humidity: <span id="day-2-humidity"></span></p>
+            </div>
+            <div class="card m-1 p-3 hide" id="day-3">
+              <h5 class="next-date" id="day-3-date"></h5>
+              <span><img id= day-3-icon></span>
+              <p class="bold">Temp: <span id="day-3-temp"></span></p>
+              <p class="bold">Wind: <span id="day-3-wind"></span></p>
+              <p class="bold">Humidity: <span id="day-3-humidity"></span></p>
+            </div>
+            <div class="card m-1 p-3 hide" id="day-4">
+              <h5 class="next-date" id="day-4-date"></h5>
+              <span><img id= day-4-icon></span>
+              <p class="bold">Temp: <span id="day-4-temp"></span></p>
+              <p class="bold">Wind: <span id="day-4-wind"></span></p>
+              <p class="bold">Humidity: <span id="day-4-humidity"></span></p>
+            </div>
+            <div class="card m-1 p-3 hide" id="day-5">
+              <h5 class="next-date" id="day-5-date"></h5>
+              <span><img id= day-5-icon></span>
+              <p class="bold">Temp: <span id="day-5-temp"></span></p>
+              <p class="bold">Wind: <span id="day-5-wind"></span></p>
+              <p class="bold">Humidity: <span id="day-5-humidity"></span></p>
+            </div>
           </div>
         </div>
       </div>
