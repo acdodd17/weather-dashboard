@@ -1,5 +1,5 @@
 //array of cities searched 
-var citiesSearched = [];
+var cities = [];
 //document elements 
 var citySearchEl = document.getElementById("city-search-form")
 var citySearchInputEl = document.getElementById("city-search");
@@ -17,14 +17,15 @@ var forcastContainer = document.getElementById("5-day-container");
 //city search form handler
 var formSubmitHandler = function(event) {
     event.preventDefault();
+    //get city from search input
     var city = citySearchInputEl.value.trim(); 
     if (city){
         getCityWeather(city);
         getForecast(city);
-        citiesSearched.push(city);
-        citySearchInputEl.value = "";
-        saveSearch();
+        cities.push(city);
         addSearchHistory(city);
+        saveSearch();
+        citySearchInputEl.value = "";
     } else {
         alert("Please enter a city name");
     }
@@ -32,24 +33,26 @@ var formSubmitHandler = function(event) {
 
 //save search date to cities array 
 var saveSearch = function() {
-    localStorage.setItem("citiesSearched", JSON.stringify(citiesSearched));
+    localStorage.setItem("cities", JSON.stringify(cities));
 };
 
-//refresh and display search history --> feels repetative from addSeachHistory funtion below, but nothing is working 
+//display search history --> DOES NOT PERSIST
 var displaySearchHistory = function() {
-    var cities = JSON.parse(localStorage.getItem("citiesSearched"));
-    for (var i=0; i < cities.length; i++) {
-        if (cities) {
-             var cityEl = document.createElement("button");
-             cityEl.textContent = cities[i]; 
-             cityEl.setAttribute("data-city", city)
-             cityEl.setAttribute("type", "submit");
-             cityEl.classList = "btn btn-secondary btn-lg my-2 p-2 w-100";
-             citySearchButtonEl.appendChild(cityEl);
-        } 
-     }
+    cities = JSON.parse(localStorage.getItem("cities"));
 
-     citiesSearched = cities; 
+    //if no cities, create array
+    if (!cities) {
+        cities = [];
+    }    
+
+    //create button for each city searched
+    for (var i = 0; i < cities.length; i++) {
+        var cityEl = document.createElement("button");
+        cityEl.textContent = cities[i];
+        cityEl.classList = "btn btn-secondary btn-lg my-2 p-2 w-100";
+        cityEl.setAttribute("data-city", cities[i]);
+        searchHistory.appendChild(cityEl);
+    }
  };
 
 
@@ -223,7 +226,7 @@ var addSearchHistory = function(search) {
     searchEl.setAttribute("data-city", search)
     searchEl.setAttribute("type", "submit");
     searchEl.classList = "btn btn-secondary btn-lg my-2 p-2 w-100";
-    searchHistory.append(searchEl);
+    searchHistory.appendChild(searchEl);
 };
 
 //get weather data for previously searched city 
@@ -237,7 +240,10 @@ var getSearchHistoryData = function(event) {
 
 //listen for city submit button
 citySearchEl.addEventListener("submit", formSubmitHandler);
-console.log(citiesSearched);
+console.log(cities);
 
 //listen for search history click 
 searchHistory.addEventListener("click", getSearchHistoryData);
+
+//display cities from localStorage
+displaySearchHistory();
